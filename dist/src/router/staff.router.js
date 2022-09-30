@@ -39,5 +39,10 @@ staffRouter.post('/edit', upload.none(), async (req, res) => {
     await staff_model_1.default.findOneAndUpdate({ _id: data.id }, data);
     res.redirect('/');
 });
+staffRouter.get('/sort', async (req, res) => {
+    let data = await staff_model_1.default.find();
+    let dataStaff = JSON.stringify(data);
+    res.end(dataStaff);
+});
 exports.default = staffRouter;
 //# sourceMappingURL=staff.router.js.map

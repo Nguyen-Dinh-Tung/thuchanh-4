@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use('/api', apiRouter)
 app.use(morgan('common'))
-app.use(helmet())
+// app.use(helmet())
 app.use(staffRouter)
 app.listen(port, () => {
     console.log('Server listening ' + port);

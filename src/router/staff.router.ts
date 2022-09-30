@@ -36,4 +36,9 @@ staffRouter.post('/edit', upload.none(), async (req, res) => {
   await Staff.findOneAndUpdate({ _id: data.id }, data)
   res.redirect('/')
 })
+staffRouter.get('/sort', async (req, res) => {
+  let data = await Staff.find()
+  let dataStaff = JSON.stringify(data)
+  res.end(dataStaff)
+})
 export default staffRouter

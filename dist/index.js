@@ -9,7 +9,6 @@ const multer_1 = __importDefault(require("multer"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const api_router_1 = __importDefault(require("./src/router/api.router"));
 const morgan_1 = __importDefault(require("morgan"));
-const helmet_1 = __importDefault(require("helmet"));
 const upload = (0, multer_1.default)();
 const port = 3000;
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -24,7 +23,6 @@ app.use(body_parser_1.default.json());
 app.use(express_1.default.json());
 app.use('/api', api_router_1.default);
 app.use((0, morgan_1.default)('common'));
-app.use((0, helmet_1.default)());
 app.use(staff_router_1.default);
 app.listen(port, () => {
     console.log('Server listening ' + port);

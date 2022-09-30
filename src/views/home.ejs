@@ -27,7 +27,7 @@
           <th scope="col"></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="tbody">
         <% data.forEach((e, index)=>{%>
         <tr>
           <td><%=index + 1%></td>
@@ -54,4 +54,58 @@
       </tbody>
     </table>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".btn-sort").click(function () {
+        var d = $(this).val();
+        $.ajax({
+          url: "http://localhost:3000/sort",
+          data: {
+            keydown: d,
+          },
+          type: "GET",
+          cache: false,
+          success: function (data) {
+            let dataStaff = JSON.parse(data);
+            let dataSort = dataStaff.sort((a, b) => {
+              return a.age - b.age;
+            });
+            handleSort(dataSort);
+          },
+        });
+      });
+    });
+
+    function handleSort(dataSort) {
+      let tbody = document.querySelector(".tbody");
+      let html = "";
+      dataSort.forEach((element, index) => {
+        html += `<tr>
+          <td>${index + 1}</td>
+          <td>${element.name}</td>
+          <td>${element.age}</td>
+          <td>${element.id_starff}</td>
+          <td>${element.department}</td>
+          <td>
+            <a
+              href="/delete?id=${element._id}"
+              class="btn btn-danger"
+              onclick="return confirm('Delete: Are U Sure?')"
+            >
+              Delete
+            </a>
+          </td>
+          <td>
+            <a href="/edit?id=${element._id}"
+              ><button class="btn btn-green">Edit</button></a
+            >
+          </td>
+        </tr>`;
+      });
+      tbody.innerHTML = html;
+    }
+  </script>
 </html>
