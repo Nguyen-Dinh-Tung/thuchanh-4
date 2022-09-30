@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <%- include('navbar')%>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">Họ tên</th>
+          <th scope="col">Tuổi</th>
+          <th scope="col">Mã nhân viên</th>
+          <th scope="col">Phòng ban</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((e, index)=>{%>
+        <tr>
+          <td><%=index + 1%></td>
+          <td><%=e.name%></td>
+          <td><%=e.age%></td>
+          <td><%=e.id_starff%></td>
+          <td><%=e.department%></td>
+          <td>
+            <a
+              href="/delete?id=<%=e.id%>"
+              class="btn btn-danger"
+              onclick="return confirm(`Delete: Are U Sure?`)"
+            >
+              Delete
+            </a>
+          </td>
+          <td>
+            <a href="/edit?id=<%=e.id%>"
+              ><button class="btn btn-green">Edit</button></a
+            >
+          </td>
+        </tr>
+        <%})%>
+      </tbody>
+    </table>
+  </body>
+</html>

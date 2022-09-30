@@ -1,0 +1,1 @@
+{"version":3,"file":"staff.model.js","sourceRoot":"","sources":["../../../src/schema/staff.model.ts"],"names":[],"mappings":";;AAAA,uCAAyC;AASzC,MAAM,aAAa,GAAG,IAAI,iBAAM,CAAS;IACvC,IAAI,EAAE,MAAM;IACZ,GAAG,EAAE,MAAM;IACX,SAAS,EAAE,MAAM;IACjB,UAAU,EAAE,MAAM;CACnB,CAAC,CAAA;AACF,MAAM,KAAK,GAAG,IAAA,gBAAK,EAAS,OAAO,EAAE,aAAa,CAAC,CAAC;AACpD,kBAAe,KAAK,CAAC"}
